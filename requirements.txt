@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+tensorflow
+opencv-python-headless  # Headless version of OpenCV for servers

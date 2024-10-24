@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fastapi-app
+    env: python
+    plan: free  # or 'starter' for free tier
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port 8000"
+    envVars:
+      - key: ENV
+        value: production
+    autoDeploy: true
