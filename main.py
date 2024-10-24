@@ -14,7 +14,7 @@ model = tf.keras.models.load_model(model_path)
 # Define custom labels (these should match your model's output)
 label_names = ['hello', 'iloveyou', 'thanks', 'yes', 'no']
 
-# Route for detecting objects in an uploaded image
+# Route for processing video frames
 @app.post('/detect')
 async def detect_objects(image: UploadFile = File(...)):
     try:
@@ -39,7 +39,3 @@ async def detect_objects(image: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(content={'error': str(e)}, status_code=500)
-
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
